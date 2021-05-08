@@ -26,25 +26,19 @@ The application will have 3 sections: Homepage, Profile and My list
 ## Routes
 
 | Name            | Method | Endpoint                      | Description                                      | Body                                  | Redirects       |
-
+| --------------- | ------ | ----------------------------- | ------------------------------------------------ | ------------------------------------- | --------------- |
 | Home            | GET    | /                             | See the main page                                |                                       |                 |
-
-| Home            | POST    | /                             | Add a new company to my list                            |                                       |                 |
-
+| Home            | POST   | /add/:id                      | Add a company to 'My list'                       | {userId, tickerId}                    | /               |
+| My list         | GET    | /mylist                       | See the list of followed companies               | {userId}                              |                 |
+| My list         | POST   | /mylist/remove/:id            | Remove a company from 'My list'                  | {userId, tickerId}                    | /myList         |
+| Company detail  | GET    | /detail/:id                   | See the detail of the company                    | {userId, tickerId}                    |                 |
+| Company detail  | POST   | /detail/:id                   | Update the company rating                        | {userId, tickerId}                    | /detail/:id     |
 | Log in form     | GET    | /login                        | See the form to log in                           |                                       |                 |
-
+| Log in form     | GET    | /login                        | See the form to log in                           |                                       |                 |
 | Log in          | POST   | /login                        | Log in the user                                  | {mail, password}                      | /               |
-
 | Sign Up form    | GET    | /signup                       | See the form to sign up                          |                                       |                 |
-
-| Sign Up         | POST   | /signup                       | Sign up a user                                   | {mail, password}                      | /login        |
-
-| My list         | GET   | /list                       | Retrieve my list of companies                                  | {user, list of company ID's, number of stocks}                      |       |
-
-| My list         | POST   | /list                       | Remove a company from my list                                  | {user, list of company ID's}                      |       |
-
-| My list         | POST   | /list                       | Update the number stocks I own for each company in my list                              | {user, list of company ID's}                      |       |
-
+| Sign Up         | POST   | /signup                       | Sign up a user                                   | {mail, password}                      | /login          |
+​
 ## Models
 
 ```jsx
@@ -59,13 +53,13 @@ The application will have 3 sections: Homepage, Profile and My list
 // Company model
 {
 
-    	ticker: String,
+    ticker: String,
 
 	name: String,
 
 	description: String
 
-    	marketCap: Number,
+    marketCap: Number,
 
 	lastPrice: Number,
 }
@@ -77,7 +71,7 @@ The application will have 3 sections: Homepage, Profile and My list
 
 	tickerId: String,
 
-	nShares: Number,
+	rating: Number, // 1-5
 
 }
 
