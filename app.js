@@ -60,5 +60,7 @@ app.use('/account', account);
 const list = require('./routes/list');
 app.use('/list', list);
 
+const authRouter = require('./routes/auth');
+app.use('/', authRouter);
 
 module.exports = app;
