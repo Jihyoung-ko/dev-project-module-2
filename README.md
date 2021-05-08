@@ -53,18 +53,18 @@ The application will have 3 sections: Homepage, Profile and My list
 // Company model
 {
 
-    ticker: String,
+  ticker: String,
 
 	name: String,
 
 	description: String
 
-    marketCap: Number,
+  marketCap: Number,
 
 	lastPrice: Number,
 }
 
-// Portfolio
+// List
 {
 
 	userId: String,
