@@ -57,5 +57,8 @@ app.use('/', index);
 const account = require('./routes/account');
 app.use('/account', account);
 
+const list = require('./routes/list');
+app.use('/list', list);
+
 
 module.exports = app;
