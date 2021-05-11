@@ -1,2 +1,11 @@
 <h1>{{title}}</h1>
 <p>Welcome to {{title}}</p>
+<ul>
+  {{#each companies}}
+    <li>
+      <a href="/companies/{{this._id}}">
+        {{ this.name }}
+      </a>
+    </li>
+  {{/each}}
+</ul>
