@@ -9,7 +9,7 @@ router.get('/signup', (req, res) => res.render('auth/signup'));
 router.post('/signup', (req, res, next) => {
   const { email, password } = req.body;
   if (!email || !password) {
-    res.render('auth/signup', {errorMessage: 'All fields are mandatory. Please provide your email and password.'});
+    res.render('auth/signup', {errorMessage: 'All fields are mandatory. Please provide your Email and password.'});
     return;
   }
 
@@ -28,5 +28,31 @@ router.post('/signup', (req, res, next) => {
       }
     });  
 });
+
+router.get('/login', (req, res) => res.render('auth/login'));
+
+router.post('/login', (req, res, next) => {
+  const { email, password } = req.body;
+
+  if (!email || !password) {
+    res.render('auth/login', {errorMessage: 'Please enter both Email and password to log in.'});
+    return;
+  }
+
+  User.findOne({email})
+  .then(user => {
+    if (!user) {
+      res.render('auth/login', {errorMessage: 'Email is not registered.'});
+      return;
+    } else if (bcryptjs.compareSync(password, user.hashedPassword)) {
+      req.session.currentUser = user;
+      res.redirect('/list');
+    } else {
+      res.render('auth/login', {errorMessage: 'Incorrect password'})
+    }
+  })
+  .catch(error => next(error));
+});
+
 
 module.exports = router;
