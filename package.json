@@ -5,7 +5,8 @@
   "scripts": {
     "start": "node ./bin/www",
     "dev": "DEBUG=dev-project--module2:* nodemon ./bin/www",
-    "dev-windows": "nodemon ./bin/www"
+    "dev-windows": "nodemon ./bin/www",
+    "seed": "node ./bin/seed.js"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
@@ -13,13 +14,14 @@
     "connect-mongo": "^4.4.1",
     "cookie-parser": "^1.4.3",
     "dotenv": "^6.0.0",
-    "express": "^4.16.3",
+    "express": "^4.17.1",
     "express-session": "^1.17.1",
     "hbs": "^4.0.1",
     "mongoose": "^5.2.10",
     "morgan": "^1.9.0",
     "node-sass-middleware": "^0.11.0",
-    "serve-favicon": "^2.5.0"
+    "serve-favicon": "^2.5.0",
+    "session": "^0.1.0"
   },
   "devDependencies": {
     "nodemon": "^1.12.1"
