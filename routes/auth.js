@@ -35,20 +35,20 @@ router.post('/login', (req, res, next) => {
   const { email, password } = req.body;
 
   if (!email || !password) {
-    res.render('auth/login', {errorMessage: 'Please enter both Email and password to log in.'});
+    res.render('auth/login', {errorMessage: 'Please enter both Email and password to log in.'}); // todo add connect-flash
     return;
   }
 
   User.findOne({email})
   .then(user => {
     if (!user) {
-      res.render('auth/login', {errorMessage: 'Email is not registered.'});
+      res.render('auth/login', {errorMessage: 'Email is not registered.'}); // todo add connect-flash
       return;
     } else if (bcryptjs.compareSync(password, user.hashedPassword)) {
       req.session.currentUser = user;
       res.redirect('/list');
     } else {
-      res.render('auth/login', {errorMessage: 'Incorrect password'})
+      res.render('auth/login', {errorMessage: 'Incorrect password'}) // todo add connect-flash
     }
   })
   .catch(error => next(error));
