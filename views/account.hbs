@@ -2,3 +2,6 @@
 <p>Welcome to the account view {{title}}</p>
 
 <a href="/logout">Logout</a>
+<form action="/account/{{id}}/delete" method="POST">
+  <button>Delete Account {{email}}</button>
+</form>
