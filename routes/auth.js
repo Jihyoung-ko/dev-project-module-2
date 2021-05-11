@@ -1,0 +1,1 @@
+app.get('/logout', (req, res) => res.render('auth/logout'));
