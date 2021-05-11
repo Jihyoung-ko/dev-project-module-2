@@ -1,1 +1,17 @@
-<h2>Sign Up</h2>
+<div id="signup">
+  <h2>Sign Up</h2>
+  <form action="/signup" method="POST" id="signup-form">
+    <label for="email">Email</label>
+    <input type="email" name="email" placeholder="Enter Your Email">
+
+    <label for="password">Password</label>
+    <input type="password" name="password" placeholder="*********">
+
+    <button type="submit">Create account</button>
+  </form>
+
+  {{#if errorMessage}}
+  <p>{{errorMessage}}</p>
+  {{/if}}
+
+</div>
