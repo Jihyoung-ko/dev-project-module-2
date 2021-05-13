@@ -13,4 +13,15 @@ router.get('/', (req, res, next) => {
   });
 });
 
+router.get('/companies/:id', (req, res, next) => {
+  const { id } = req.params;
+  Company.findById(id)
+  .then(company => {
+    res.render('companies/detail', { company });
+  })
+  .catch(error => {
+    next(error);
+  });
+});
+
 module.exports = router;

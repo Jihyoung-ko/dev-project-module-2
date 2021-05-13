@@ -3,7 +3,7 @@ const userLoggedIn = (page) => {
     if (req.session.currentUser) {
       return next();
     }
-    return res.render('auth/login', {page});
+    return res.redirect('/login');
   });
 
 };

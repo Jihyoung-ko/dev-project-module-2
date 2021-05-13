@@ -29,7 +29,10 @@ router.post('/signup', (req, res, next) => {
     });  
 });
 
-router.get('/login/', (req, res) => res.render('auth/login'));
+router.get('/login/', (req, res) => {
+  console.log(req.get('referer'));
+  res.render('auth/login')
+});
 
 router.post('/login/account', (req, res, next) => {
   const { email, password } = req.body;
