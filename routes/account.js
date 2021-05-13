@@ -4,10 +4,10 @@ const User = require('../models/user');
 const userLoggedIn = require('../middleware/middle');
 
 
-
 /* GET account page */
-router.get('/', userLoggedIn, (req, res, next) => {
-  res.render('account');
+router.get('/', userLoggedIn('account'), (req, res, next) => {
+  const user = req.session.currentUser
+  res.render('account', { user });
 });
 
 
