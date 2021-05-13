@@ -4,7 +4,6 @@ const Company = require('../models/company');
 
 /* GET home page */
 router.get('/', (req, res, next) => {
-  console.log(Company);
   Company.find({})
   .then(companies => {
     res.render('index', { companies });
