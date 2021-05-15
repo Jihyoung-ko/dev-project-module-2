@@ -7,6 +7,7 @@
       <a href="/detail/{{this._id}}/list">
         {{ this.company.name }}
         {{ this.user.email }}
+        <p>Rate: {{ this.rating }}</p>
       </a>
       <form action="/list/{{this._id}}/remove" method="POST">
         <button>Remove</button>
