@@ -3,14 +3,25 @@ const router  = express.Router();
 const Company = require('../models/company');
 const List = require('../models/list');
 
+router.get('/:id/home', (req, res, next) => {
+  const { id } = req.params;
+  Company.findById(id)
+    .then(company => {
+      console.log(company);
+      res.render('companies/detail-home', { company });
+    })
+    .catch(error => {
+      next(error);
+    });
+});  
 
-router.get('/:id', (req, res, next) => {
+router.get('/:id/list', (req, res, next) => {
   const { id } = req.params;
   List.findById(id)
     .populate('company')
     .then(list => {
       console.log(list);
-      res.render('companies/detail', { list });
+      res.render('companies/detail-list', { list });
     })
     .catch(error => {
       next(error);

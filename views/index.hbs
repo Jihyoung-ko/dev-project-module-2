@@ -3,7 +3,7 @@
 <ul>
   {{#each companies}}
     <li>
-      <a href="/detail/{{this._id}}">
+      <a href="/detail/{{this._id}}/home">
         {{ this.name }}
       </a>
       <form action="/list/{{this._id}}/add" method="POST">
