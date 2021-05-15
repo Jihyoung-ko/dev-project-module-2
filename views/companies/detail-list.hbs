@@ -1,0 +1,32 @@
+<div>
+  <h1>{{list.company.name}}</h1>
+  <h2>{{list.company.ticker}}</h2>
+  <div id="company-graph-container">
+
+  </div>
+  <div id="company-description-container">
+    <p>{{list.company.description}}</p>
+  </div>
+  <div id="company-performance-container">
+    <h5>Performance</h5>
+  </div>
+  <div id="company-rating-container">
+    <h5>My Rating
+    </h5>
+    <form action="/detail/{{list._id}}/rate/1" method="POST">
+      <button type="submit"> 1 </button>
+    </form>
+    <form action="/detail/{{list._id}}/rate/2" method="POST">
+      <button type="submit"> 2 </button>
+    </form>
+    <form action="/detail/{{list._id}}/rate/3" method="POST">
+      <button type="submit"> 3 </button>
+    </form>
+    <form action="/detail/{{list._id}}/rate/4" method="POST">
+      <button type="submit"> 4 </button>
+    </form>
+    <form action="/detail/{{list._id}}/rate/5" method="POST">
+      <button type="submit"> 5 </button>
+    </form>
+  </div>
+</div>
