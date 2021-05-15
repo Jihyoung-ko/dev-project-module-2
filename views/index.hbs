@@ -6,6 +6,9 @@
       <a href="/companies/{{this._id}}">
         {{ this.name }}
       </a>
+      <form action="/list/{{this._id}}/add" method="POST">
+        <button>Add</button>
+      </form>
     </li>
   {{/each}}
 </ul>

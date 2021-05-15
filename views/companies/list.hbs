@@ -4,8 +4,12 @@
   {{#each list}}
     <li>
       <a href="/companies/{{this._id}}">
-        {{ this.name }}
+        {{ this.company.name }}
+        {{ this.user.email }}
       </a>
+      <form action="/list/{{this.list._id}}/remove" method="POST">
+        <button>Remove</button>
+      </form>
     </li>
   {{/each}}
 </ul>
