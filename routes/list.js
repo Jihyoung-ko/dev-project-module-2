@@ -3,12 +3,12 @@ const router  = express.Router();
 const userLoggedIn = require('../middleware/middle');
 const List = require('../models/list');
 
+// load list view
 router.get('/', userLoggedIn('list'), (req, res, next) => {
   const user = req.session.currentUser
   List.find({ user: user._id })
   .populate('company user')
   .then(list => {
-    console.log('list:',list,'user:',user._id)
     res.render('companies/list', { list });
   })
   .catch(error => {
@@ -16,10 +16,10 @@ router.get('/', userLoggedIn('list'), (req, res, next) => {
   });
 });
 
-router.post('/:id/add', (req, res, next) => {
+// add company to list
+router.post('/:id/add', userLoggedIn('list'), (req, res, next) => {
   const user = req.session.currentUser
   const company = req.params;
-  console.log(company);
   List.create({
     user: user._id,
     company: company.id
@@ -27,6 +27,20 @@ router.post('/:id/add', (req, res, next) => {
     .then(list => {
       // 💥 la url del redirect es completa no como los paths del middleware
       res.redirect('/');
+    })
+    .catch(error => {
+      next(error);
+    });
+});
+
+// remove company from list
+router.post('/:id/remove', userLoggedIn('list'), (req, res, next) => {
+  const user = req.session.currentUser
+  const { id } = req.params;
+  List.findByIdAndDelete(id)
+    .then(list => {
+      res.status(301);
+      res.redirect('/list');
     })
     .catch(error => {
       next(error);
