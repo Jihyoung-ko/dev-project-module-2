@@ -34,7 +34,7 @@ router.post('/:id/rate/1', (req, res, next) => {
   List.findByIdAndUpdate( id, {rating: 1}, {new: true})
     .then(list => {
       console.log('Update rate', list);
-      res.redirect('/');
+      res.redirect('back');
     })
     .catch(error => {
       next(error);
@@ -47,7 +47,7 @@ router.post('/:id/rate/2', (req, res, next) => {
   List.findByIdAndUpdate( id, {rating: 2}, {new: true})
     .then(list => {
       console.log('Update rate', list);
-      res.redirect('/');
+      res.redirect('back');
     })
     .catch(error => {
       next(error);
@@ -60,7 +60,7 @@ router.post('/:id/rate/3', (req, res, next) => {
   List.findByIdAndUpdate( id, {rating: 3}, {new: true})
     .then(list => {
       console.log('Update rate', list);
-      res.redirect('/');
+      res.redirect('back');
     })
     .catch(error => {
       next(error);
@@ -73,7 +73,7 @@ router.post('/:id/rate/4', (req, res, next) => {
   List.findByIdAndUpdate( id, {rating: 4}, {new: true})
     .then(list => {
       console.log('Update rate', list);
-      res.redirect('/');
+      res.redirect('back');
     })
     .catch(error => {
       next(error);
@@ -86,7 +86,7 @@ router.post('/:id/rate/5', (req, res, next) => {
   List.findByIdAndUpdate( id, {rating: 5}, {new: true})
     .then(list => {
       console.log('Update rate', list);
-      res.redirect('/');
+      res.redirect('back');
     })
     .catch(error => {
       next(error);
