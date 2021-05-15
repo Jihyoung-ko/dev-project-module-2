@@ -1,10 +1,10 @@
 const express = require('express');
 const router  = express.Router();
-const userLoggedIn = require('../middleware/middle');
+const userLoggedIn = require('../middleware/auth');
 const List = require('../models/list');
 
 // load list view
-router.get('/', userLoggedIn('list'), (req, res, next) => {
+router.get('/', userLoggedIn, (req, res, next) => {
   const user = req.session.currentUser
   List.find({ user: user._id })
   .populate('company user')
@@ -17,7 +17,7 @@ router.get('/', userLoggedIn('list'), (req, res, next) => {
 });
 
 // add company to list
-router.post('/:id/add', userLoggedIn('list'), (req, res, next) => {
+router.post('/:id/add', userLoggedIn, (req, res, next) => {
   const user = req.session.currentUser
   const company = req.params;
   List.create({
@@ -34,7 +34,7 @@ router.post('/:id/add', userLoggedIn('list'), (req, res, next) => {
 });
 
 // remove company from list
-router.post('/:id/remove', userLoggedIn('list'), (req, res, next) => {
+router.post('/:id/remove', userLoggedIn, (req, res, next) => {
   const user = req.session.currentUser
   const { id } = req.params;
   List.findByIdAndDelete(id)
