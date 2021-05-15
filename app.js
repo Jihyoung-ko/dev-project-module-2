@@ -81,4 +81,7 @@ app.use('/list', list);
 const authRouter = require('./routes/auth');
 app.use('/', authRouter);
 
+// const detailRouter = require('./routes/detail');
+// app.use('/companies', detailRouter);
+
 module.exports = app;
