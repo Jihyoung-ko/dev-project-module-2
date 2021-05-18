@@ -1,9 +1,9 @@
 {{!-- <h1>{{title}}</h1>
 <p>Welcome to the account view {{title}}</p> --}}
 <div class="auth-container">
-  <h3>{{user.email}}</h3>
+  <h2>{{user.email}}</h2>
 
-  <button class="btn-submit" id="btn-logout">
+  <button class="btn-submit">
     <a href="/logout">Logout</a>
   </button>
   <form action="/account/{{user._id}}/delete" method="POST">

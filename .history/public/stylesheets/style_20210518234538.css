@@ -94,3 +94,8 @@ h2 {
 #signup-link a {
   color: #ac8fd5;
 }
+
+#btn-logout {
+  margin: 30px;
+  color: white;
+}

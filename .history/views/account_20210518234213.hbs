@@ -3,8 +3,8 @@
 <div class="auth-container">
   <h3>{{user.email}}</h3>
 
-  <button class="btn-submit" id="btn-logout">
-    <a href="/logout">Logout</a>
+  <button class="btn-submit">
+    <a href="/logout" id="btn-logout">Logout</a>
   </button>
   <form action="/account/{{user._id}}/delete" method="POST">
     <button class="btn-submit">Delete Account</button>
