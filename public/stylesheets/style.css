@@ -2,8 +2,16 @@ body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
 
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+} 
+
 a {
-  color: #00B7FF; }
+  color: #00B7FF;
+  text-decoration: none;
+}
 
 .icon-bar {
   width: 100%;
@@ -37,3 +45,11 @@ a {
   /* Add an active/current color */ }
 
 /*# sourceMappingURL=style.css.map */
+
+
+/* Login */
+
+#login-container {
+  max-width: 500px;
+  display: block;
+}
