@@ -6,23 +6,12 @@ body {
 }
 
 * {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-* {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 } 
 
 a {
-<<<<<<< HEAD
-  color: #00B7FF;
-  text-decoration: none;
-}
-=======
   color: #00B7FF; 
   text-decoration: none;
 }
@@ -30,7 +19,6 @@ a {
 h2 {
   text-align: center;
 }
->>>>>>> 98809084891858ad705ea371f1ee2f9148110d16
 
 .icon-bar {
   width: 100%;
@@ -65,14 +53,6 @@ h2 {
 
 /*# sourceMappingURL=style.css.map */
 
-<<<<<<< HEAD
-
-/* Login */
-
-#login-container {
-  max-width: 500px;
-  display: block;
-=======
 .auth-container {
   max-width: 400px;
   background: rgba(90, 32, 172, 0.8);
@@ -121,5 +101,4 @@ h2 {
 
 #btn-logout a {
   color: white;
->>>>>>> 98809084891858ad705ea371f1ee2f9148110d16
 }
