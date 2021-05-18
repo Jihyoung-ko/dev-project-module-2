@@ -8,9 +8,9 @@ router.get('/', (req, res, next) => {
   Company.find({})
   .then(companies => {
     // create array of API promises
-    const arrayPromises = [];
+    /*const arrayPromises = [];
     companies.forEach( (company) => {
-      arrayPromises.push(axios.get('https://eodhistoricaldata.com/api/eod/' + company.ticker + '.US', {
+      arrayPromises.push(axios.get('https://eodhistoricaldata.com/api/eod/' + company.ticker, {
         params: {
           api_token: '5a7d012ed31c6',
           period : 'd',
@@ -29,7 +29,8 @@ router.get('/', (req, res, next) => {
       return companies
     }).then(updatedCompanies => {
       return updatedCompanies;
-    });
+    });*/
+    return companies
   }).then(companies => {
     res.render('index', { companies });
   })
@@ -37,7 +38,5 @@ router.get('/', (req, res, next) => {
     next(error);
   });
 });
-
-
 
 module.exports = router;

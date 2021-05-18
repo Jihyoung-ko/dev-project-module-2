@@ -8,14 +8,12 @@ const companySchema = new Schema({
     type: String,
     required: [true, 'ticker is required'],
   },
-
   name: String,
-
   description: String,
-
   marketCap: Number,
-
 	lastPrice: Number,
+  hi_250d: Number,
+  lo_250d: Number
 
 });
 
