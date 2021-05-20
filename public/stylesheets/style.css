@@ -12,9 +12,12 @@ body {
 }
 
 a {
-  color: #00B7FF; 
+  color: #00B7FF;
   text-decoration: none;
 }
+
+
+
 
 .icon-bar {
   width: 100%;
@@ -48,6 +51,11 @@ a {
   /* Add an active/current color */ }
 
 /*# sourceMappingURL=style.css.map */
+
+
+
+/* Login */
+
 
 .auth-container {
   max-width: 400px;
