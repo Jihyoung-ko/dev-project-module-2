@@ -102,3 +102,9 @@ a {
 #btn-logout a {
   color: white;
 }
+
+.error-message {
+  color: #72ac20;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
