@@ -11,6 +11,16 @@ router.get('/', userLoggedIn, (req, res, next) => {
   res.render('account', { user });
 });
 
-
+router.post('/:id/delete', (req, res, next) => {
+  const { id } = req.params;
+  User.findByIdAndDelete(id)
+  .then(user => {
+    console.log('User has deleted', user);
+    res.redirect('/');
+  })
+  .catch(error => {
+    next(error);
+  });
+});
 
 module.exports = router;

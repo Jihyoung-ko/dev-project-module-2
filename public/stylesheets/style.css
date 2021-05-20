@@ -12,8 +12,12 @@ body {
 }
 
 a {
-  color: #00B7FF; 
+  color: #00B7FF;
   text-decoration: none;
+}
+
+h1, h2, h4 {
+  margin-bottom: 10px;
 }
 
 .icon-bar {
@@ -48,6 +52,11 @@ a {
   /* Add an active/current color */ }
 
 /*# sourceMappingURL=style.css.map */
+
+
+
+/* Login */
+
 
 .auth-container {
   max-width: 400px;
@@ -109,6 +118,24 @@ a {
   font-weight: bold;
 }
 
-.rating-box {
-  display: inline;
+#rating-number-container {
+  display: flex;
+  justify-content: space-around;
+  max-width: 300px;
 }
+
+#rating-number-container:hover button i
+{
+  color: #FDCC0D;
+  cursor: pointer;
+}
+
+#rating-number-container form:hover ~ form button i {
+  color: black;
+}
+
+#rating-number-container form:checked ~ form button i {
+  color: black;
+}
+
+

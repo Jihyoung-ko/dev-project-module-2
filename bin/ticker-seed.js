@@ -1,8 +1,14 @@
 const mongoose = require('mongoose');
 const Company = require('../models/company');
-const tickerList = require('./ticker-list.json');
+const tickerList = require('./ticker-list.js');
 
-console.log(tickerList);
+// create company json list
+const companyList = [];
+tickerList.forEach(element => {
+  companyList.push({
+    ticker: element,
+  })
+})
 
 mongoose
   .connect('mongodb://localhost:27017/dev-project--module2', { useNewUrlParser: true, useUnifiedTopology: true })
@@ -11,7 +17,7 @@ mongoose
   })
   .then(() => 
     Company.create(
-      tickerList
+      companyList
     )
   )
   .then(() => {
