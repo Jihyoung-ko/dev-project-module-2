@@ -1,11 +1,13 @@
 <h1>{{title}}</h1>
 <p>Welcome to the list view of {{title}}</p>
+<p>{{list.length}} company</p>
 <ul>
   {{#each list}}
     <li>
       <a href="/detail/{{this._id}}/list">
         {{ this.company.name }}
         {{ this.user.email }}
+        <p>Rate: {{ this.rating }}</p>
       </a>
       <form action="/list/{{this._id}}/remove" method="POST">
         <button>Remove</button>
