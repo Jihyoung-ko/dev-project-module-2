@@ -51,6 +51,58 @@ h1, h2, h4 {
   background-color: #5a20ac;
   /* Add an active/current color */ }
 
+* {
+  /*box-sizing: border-box;
+  /*font-family: 'Nunito Sans';font-size: 18px;*/ }
+
+.main-container {
+  /*background-color: black;*/
+  /*align-items: flex-stretch;*/
+  display: flex;
+  flex-direction: column;
+  justify-content: stretch;
+  font-family: 'Nunito Sans';
+  font-size: 18px;
+  background-color: #1b1b1b; }
+
+.container-box {
+  display: flex;
+  justify-content: stretch;
+  border-top: solid 1px darkgrey;
+  height: 10%;
+  height: 50px;
+  color: azure;
+  padding: 10px; }
+
+.box-1 {
+  /*display:flex;
+  justify-content: stretch;*/
+  flex: 2;
+  flex-basis: 50%; }
+
+.box-2 {
+  flex: 1;
+  flex-basis: 20%; }
+
+.box-3 {
+  flex: 1;
+  flex-basis: 20%; }
+
+.box-4 {
+  flex: 1;
+  flex-basis: 10%;
+  height: 100%;
+  /*display:flex;*/ }
+
+.box-4-button {
+  box-sizing: border-box;
+  width: 50px;
+  height: 50px;
+  color: #5a20ac;
+  font-size: 30px;
+  font-style: oblique; }
+
+/*# sourceMappingURL=style.css.map */
 /*# sourceMappingURL=style.css.map */
 
 
