@@ -1,20 +1,39 @@
-<h1>{{title}}</h1>
-<p>Welcome to the list view of {{title}}</p>
-<p>{{list.length}} company</p>
-<ul>
+<div id="list-user-container">
+  <p>{{list.length}} companies</p>
+  <p>{{ user.email }}</p>
+</div>
+<div class="main-container">
   {{#each list}}
-    <li>
-      <a href="/detail/{{this._id}}/list">
-        {{ this.company.name }}
-        {{ this.user.email }}
-        <p>Rate: {{ this.rating }}</p>
-      </a>
-      <form action="/list/{{this._id}}/remove" method="POST">
-        <button>Remove</button>
-      </form>
-    </li>
+    <div class="container-box">
+      <div class="box-1">
+        <div class="sub-box-1-1">
+          <a href="/detail/{{this._id}}/list">
+            {{ this.company.ticker }}
+        </a>
+        </div>
+        <div class="sub-box-1-2">
+          {{ this.company.name }}
+        </div>
+      </div>
+      <div class="box-2">
+        <p>{{this.rating}}</p>
+      </div>
+      <div class="box-3">
+        +150%
+      </div>
+      <div class="box-4">
+         <form action="/list/{{this._id}}/remove" method="POST">
+          <button class="box-4-button">x</button>
+        </form>
+      </div>
+    </div>
+      
+        
+       
+      
   {{/each}}
-</ul>
+  
+</div>
 
 
 

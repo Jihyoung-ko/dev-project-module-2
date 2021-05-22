@@ -9,7 +9,7 @@ router.get('/', userLoggedIn, (req, res, next) => {
   List.find({ user: user._id })
   .populate('company user')
   .then(list => {
-    res.render('companies/list', { list });
+    res.render('companies/list', { list, user });
   })
   .catch(error => {
     next(error);
