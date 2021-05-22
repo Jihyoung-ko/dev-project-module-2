@@ -41,7 +41,6 @@ app.use(
 const app_name = require('./package.json').name;
 const debug = require('debug')(`${app_name}:${path.basename(__filename).split('.')[0]}`);
 
-
 // Middleware Setup
 app.use(logger('dev'));
 app.use(bodyParser.json());
@@ -56,18 +55,13 @@ app.use(cookieParser());
 //   sourceMap: true
 // }));
       
-
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 
-
-
 // default value for title local
 app.locals.title = 'iStock';
-
-
 
 const index = require('./routes/index');
 app.use('/', index);

@@ -1,28 +1,27 @@
 <h1>{{title}}</h1>
-<p>Welcome to {{title}}</p>
 <div class="main-container" >
   {{#each companies}}
     <div class="container-box" >
       <div class="box-1">
         <div class="sub-box-1-1">
           <a href="/detail/{{this._id}}/list">
-            TICKER{{ this.company.ticker }}
+            {{ this.ticker }}
           </a>
         </div>
         <div class="sub-box-1-2">
-          Company Name Inc.{{ this.company.name }}
+          {{ this.name }}
         </div>
       </div>
       <div class="box-2">
         <div class="sub-box-2-1">
-          Sector
+          H: {{ this.hi_250d }}
         </div>
         <div class="sub-box-2-2">
-          Industry
+          L: {{ this.lo_250d }}
         </div>
       </div>
       <div class="box-3">
-        +150%
+        +X%
       </div>
       <div class="box-4">
         <form action="/list/{{this._id}}/add" method="POST">

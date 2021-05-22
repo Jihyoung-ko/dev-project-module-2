@@ -69,8 +69,7 @@ h1, h2, h4 {
   display: flex;
   justify-content: stretch;
   border-top: solid 1px darkgrey;
-  height: 10%;
-  height: 50px;
+  height: 65px;
   color: azure;
   padding: 10px; }
 
