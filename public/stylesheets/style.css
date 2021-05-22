@@ -16,8 +16,9 @@ a {
   text-decoration: none;
 }
 
-
-
+h1, h2, h4 {
+  margin-bottom: 10px;
+}
 
 .icon-bar {
   width: 100%;
@@ -168,3 +169,25 @@ a {
   margin-bottom: 20px;
   font-weight: bold;
 }
+
+#rating-number-container {
+  display: flex;
+  justify-content: space-around;
+  max-width: 300px;
+}
+
+#rating-number-container:hover button i
+{
+  color: #FDCC0D;
+  cursor: pointer;
+}
+
+#rating-number-container form:hover ~ form button i {
+  color: black;
+}
+
+#rating-number-container form:checked ~ form button i {
+  color: black;
+}
+
+

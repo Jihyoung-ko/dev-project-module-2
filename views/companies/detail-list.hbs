@@ -8,25 +8,28 @@
     <p>{{list.company.description}}</p>
   </div>
   <div id="company-performance-container">
-    <h5>Performance</h5>
+    <h4>Performance</h4>
   </div>
   <div id="company-rating-container">
-    <h5>My Rating
-    </h5>
-    <form action="/detail/{{list._id}}/rate/1" method="POST">
-      <button type="submit"> 1 </button>
-    </form>
-    <form action="/detail/{{list._id}}/rate/2" method="POST">
-      <button type="submit"> 2 </button>
-    </form>
-    <form action="/detail/{{list._id}}/rate/3" method="POST">
-      <button type="submit"> 3 </button>
-    </form>
-    <form action="/detail/{{list._id}}/rate/4" method="POST">
-      <button type="submit"> 4 </button>
-    </form>
-    <form action="/detail/{{list._id}}/rate/5" method="POST">
-      <button type="submit"> 5 </button>
-    </form>
+    <h4>My Rating
+    </h4>
+    <div id="rating-number-container">
+      <form action="/detail/{{list._id}}/rate/1" method="POST" class="rating-box">
+        <button type="submit"> <i class="fa fa-star fa-2x"></i> </button>
+      </form>
+      <form action="/detail/{{list._id}}/rate/2" method="POST" class="rating-box">
+        <button type="submit"> <i class="fa fa-star fa-2x"></i></button>
+      </form>
+      <form action="/detail/{{list._id}}/rate/3" method="POST" class="rating-box">
+        <button type="submit"> <i class="fa fa-star fa-2x"></i> </button>
+      </form>
+      <form action="/detail/{{list._id}}/rate/4" method="POST" class="rating-box">
+        <button type="submit"> <i class="fa fa-star fa-2x"></i></button>
+      </form>
+      <form action="/detail/{{list._id}}/rate/5" method="POST" class="rating-box">
+        <button type="submit"> <i class="fa fa-star fa-2x"></i> </button>
+      </form>
+    </div>
+    
   </div>
 </div>
