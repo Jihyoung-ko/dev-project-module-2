@@ -5,7 +5,7 @@ const axios = require('axios');
 
 /* GET home page */
 router.get('/', (req, res, next) => {
-  Company.find({})
+    Company.find({})
   .then(companies => {
     // create array of API promises
     /*const arrayPromises = [];
@@ -29,9 +29,9 @@ router.get('/', (req, res, next) => {
       return companies
     }).then(updatedCompanies => {
       return updatedCompanies;
-    });*/
+    });
     return companies
-  }).then(companies => {
+  }).then(companies => {*/
     res.render('index', { companies });
   })
   .catch(error => {

@@ -6,8 +6,9 @@
     "start": "node ./bin/www",
     "dev": "DEBUG=dev-project--module2:* nodemon ./bin/www",
     "dev-windows": "nodemon ./bin/www",
-    "seed": "node ./bin/seed.js",
-    "data-update": "node ./bin/data-update.js"
+    "ticker-seed": "node ./bin/ticker-seed.js",
+    "company-data-update": "node ./bin/company-data-update.js",
+    "histPrices-data-update": "node ./bin/histPrices-data-update.js"
   },
   "dependencies": {
     "axios": "^0.21.1",

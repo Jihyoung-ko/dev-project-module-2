@@ -15,13 +15,18 @@ mongoose
   .then(() => {
     console.log('Connected to DB 🚀');
   })
+  .then( () => {
+    // delete all existing companies
+    return Company.deleteMany({  });
+  })
   .then(() => 
+    // add all new companies
     Company.create(
       companyList
     )
   )
   .then(() => {
-    console.log('company created');
+    console.log('Companies added!');
   })
   .catch(error => {
     console.log('error ', error);
