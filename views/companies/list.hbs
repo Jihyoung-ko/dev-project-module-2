@@ -16,10 +16,10 @@
         </div>
       </div>
       <div class="box-2">
-        <p>{{this.rating}}</p>
+        <p>Rate: {{this.rating}}</p>
       </div>
       <div class="box-3">
-        +150%
+        +{{ this.change_p }}%
       </div>
       <div class="box-4">
          <form action="/list/{{this._id}}/remove" method="POST">

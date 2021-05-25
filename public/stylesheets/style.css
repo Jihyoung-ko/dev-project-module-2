@@ -18,6 +18,7 @@ a {
 
 h1, h2, h4 {
   margin-bottom: 10px;
+  margin-left: 20px;
 }
 
 .icon-bar {
@@ -47,12 +48,9 @@ h1, h2, h4 {
   font-size: 36px;
   /* Increased font size */ }
 
-.active {
-  background-color: #5a20ac;
-  /* Add an active/current color */ }
 
-<<<<<<< HEAD
-=======
+
+
 * {
   /*box-sizing: border-box;
   /*font-family: 'Nunito Sans';font-size: 18px;*/ }
@@ -104,7 +102,6 @@ h1, h2, h4 {
   font-style: oblique; }
 
 /*# sourceMappingURL=style.css.map */
->>>>>>> 033059ab3cadb7132106db25efdc48e13f14b604
 /*# sourceMappingURL=style.css.map */
 
 
