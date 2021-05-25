@@ -18,6 +18,7 @@ a {
 
 h1, h2, h4 {
   margin-bottom: 10px;
+  margin-left: 20px;
 }
 
 .icon-bar {
@@ -47,9 +48,6 @@ h1, h2, h4 {
   font-size: 36px;
   /* Increased font size */ }
 
-.active {
-  background-color: #5a20ac;
-  /* Add an active/current color */ }
 
 * {
   /*box-sizing: border-box;
@@ -102,6 +100,7 @@ h1, h2, h4 {
   font-style: oblique; }
 
 /*# sourceMappingURL=style.css.map */
+
 
 
 

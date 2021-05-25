@@ -1,15 +1,15 @@
+require('dotenv').config()
 const mongoose = require('mongoose');
 const Company = require('../models/company');
-const tickerList = require('./ticker-list.js');
 const axios = require('axios');
 
 mongoose
-  .connect('mongodb://localhost:27017/dev-project--module2', { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false })
+  .connect(process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false })
   .then(() => {
-    console.log('Connected to DB 🚀');
+    console.log('Connected to Atlas DB 🚀');
   })
   .then(() => {
-    return Company.find({});
+    return Company.find({ });
   })
   .then(companies => {
     var tickerStr = "";
@@ -19,7 +19,7 @@ mongoose
   return tickerStr
   })
   .then( tickerStr => {
-    // download company data with eodhistoricaldata.com API
+    // download company data from eodhistoricaldata.com API
     return axios.get('https://eodhistoricaldata.com/api/eod-bulk-last-day/US?', {
       params: {
         api_token: '5a7d012ed31c6',
@@ -32,6 +32,7 @@ mongoose
   .then( async (promiseRes) => {
   // update companies
     for (let company of promiseRes.data) {
+      const lo_hi_perf = Math.round(((company.hi_250d-company.lo_250d)/company.lo_250d)*100)
       await Company.findOneAndUpdate( {
         ticker: company.code + "." + company.exchange_short_name 
         }, { $set: { 
@@ -39,7 +40,8 @@ mongoose
           type: company.type,
           marketCap: company.MarketCapitalization,
           hi_250d: company.hi_250d,
-          lo_250d: company.lo_250d
+          lo_250d: company.lo_250d,
+          change_p: lo_hi_perf
         }
       }, { new:true} );
     }

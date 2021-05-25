@@ -16,12 +16,13 @@
           {{ this.company.name }}
         </div>
       </div>
-      <div class="box-2 wrapper">
-        <div id="star-five"></div>
-        <p>{{this.rating}}</p>
-        </div>
+
+      <div class="box-2">
+        <p>Rate: {{this.rating}}</p>
+      </div>
+
       <div class="box-3">
-        +150%
+        +{{ this.change_p }}%
       </div>
       <div class="box-4">
          <form action="/list/{{this._id}}/remove" method="POST">
