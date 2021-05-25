@@ -1,12 +1,54 @@
 <div class="detail-container">
-  <h1>{{this.company.name}}</h1>
-  <h2>{{company.ticker}}</h2>
+  <h1>{{lastdata.company.ticker}}</h1>
+  <h2>{{lastdata.company.name}}</h2>
   <div id="company-graph-container">
-
+    <canvas id="chart" width="250" height="200"></canvas>
+    <script>
+      const ctx = document.getElementById('chart').getContext('2d');
+      const dates = "{{dates}}".split(',')
+      const formatDate = dates.map(date => {
+    
+        const dateDetails = date.split(" ");
+        return `${dateDetails[1]} ${dateDetails[2]} ${dateDetails[3]}`;
+      })
+      const prices = "{{prices}}".split(',');
+      const myChart = new Chart(ctx, {
+          type: 'line',
+          data: {
+              labels: formatDate,
+              datasets: [{
+                  label: 'close price',
+                  data: prices,
+                  backgroundColor: ['rgba(255, 99, 132, 0.2)'],
+                  borderColor: ['rgba(255, 99, 132, 1)'],
+                  borderWidth: 1
+              }]
+          },
+          options: {
+            
+              scales: {
+                  y: {
+                      beginAtZero: true
+                  }
+              }
+          }
+      });
+    </script>
   </div>
   <div id="company-description-container">
     <p>{{company.description}}</p>
   </div>
   <div id="company-performance-container">
     <h4>Performance</h4>
+    <div>
+      <p>Date: {{lastdata.date}}</p>
+      <p>Open: {{lastdata.open}}</p>
+      <p>High: {{lastdata.high}}</p>
+      <p>Low: {{lastdata.low}}</p>
+      <p>Close: {{lastdata.Close}}</p>
+      <p>Adjusted close: {{lastdata.adjusted_close}}</p>
+      <p>Vol: {{lastdata.volume}}</p>
+      
+    </div>
   </div>
+

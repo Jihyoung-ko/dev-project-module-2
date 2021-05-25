@@ -2,17 +2,33 @@ const express = require('express');
 const router  = express.Router();
 const Company = require('../models/company');
 const List = require('../models/list');
+const HistPrices = require('../models/histPrices');
+
 
 router.get('/:id/home', (req, res, next) => {
   const { id } = req.params;
-  Company.findById(id)
-    .then(company => {
-      console.log(company);
-      res.render('companies/detail-home', { company });
+  HistPrices.find( { company : id })    
+    .populate('company')
+    .then(data => {
+      const lastdata = data[data.length-1];
+      const dates = data.map(function(ele){
+        return ele.date;
+      })
+      const prices = data.map(ele => ele.Close);
+      res.render('companies/detail-home', { data, lastdata, dates, prices });
     })
     .catch(error => {
       next(error);
     });
+  // Company.findById(id)
+  //   .then()
+  //   .then(company => {
+  //     console.log(company);
+  //     res.render('companies/detail-home', { company });
+  //   })
+  //   .catch(error => {
+  //     next(error);
+  //   });
 });  
 
 router.get('/:id/list', (req, res, next) => {
@@ -20,7 +36,6 @@ router.get('/:id/list', (req, res, next) => {
   List.findById(id)
     .populate('company')
     .then(list => {
-      console.log(list);
       res.render('companies/detail-list', { list });
     })
     .catch(error => {
