@@ -1,6 +1,7 @@
 <div id="list-user-container">
   <p>{{list.length}} companies</p>
   <p>{{ user.email }}</p>
+  <p>{{ data.open}} </p>
 </div>
 <div class="main-container">
   {{#each list}}
@@ -15,9 +16,10 @@
           {{ this.company.name }}
         </div>
       </div>
-      <div class="box-2">
+      <div class="box-2 wrapper">
+        <div id="star-five"></div>
         <p>{{this.rating}}</p>
-      </div>
+        </div>
       <div class="box-3">
         +150%
       </div>
