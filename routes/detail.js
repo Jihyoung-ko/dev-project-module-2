@@ -7,13 +7,15 @@ const HistPrices = require('../models/histPrices');
 
 router.get('/:id/home', (req, res, next) => {
   const { id } = req.params;
-  HistPrices.find( { company : id })
-    
+  HistPrices.find( { company : id })    
     .populate('company')
     .then(data => {
-      console.log(data[data.length-1]);
       const lastdata = data[data.length-1];
-      res.render('companies/detail-home', { data, lastdata });
+      const dates = data.map(function(ele){
+        return ele.date;
+      })
+      const prices = data.map(ele => ele.Close);
+      res.render('companies/detail-home', { data, lastdata, dates, prices });
     })
     .catch(error => {
       next(error);
