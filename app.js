@@ -1,5 +1,5 @@
 require('dotenv').config();
-
+//MONGODB_URI=mongodb://localhost:27017/dev-project--module2
 const bodyParser   = require('body-parser');
 const cookieParser = require('cookie-parser');
 const express      = require('express');
@@ -13,7 +13,7 @@ const MongoStore = require('connect-mongo');
 
 
 mongoose
-  .connect('mongodb://localhost/dev-project--module2', {useNewUrlParser: true})
+  .connect(process.env.MONGODB_URI, {useNewUrlParser: true})
   .then(x => {
     console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
   })
@@ -26,7 +26,7 @@ const app = express();
 app.use(
   session({
     store: MongoStore.create({
-      mongoUrl: 'mongodb://localhost:27017/dev-project--module2',
+      mongoUrl: process.env.MONGODB_URI,
       ttl: 24 * 60 * 60
     }),
     secret: process.env.SESS_SECRET,

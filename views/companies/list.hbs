@@ -1,6 +1,7 @@
 <div id="list-user-container">
   <p>{{list.length}} companies</p>
   <p>{{ user.email }}</p>
+  <p>{{ data.open}} </p>
 </div>
 <div class="main-container">
   {{#each list}}
@@ -15,11 +16,13 @@
           {{ this.company.name }}
         </div>
       </div>
+
       <div class="box-2">
-        <p>{{this.rating}}</p>
+        <p>Rate: {{this.rating}}</p>
       </div>
+
       <div class="box-3">
-        +150%
+        +{{ this.change_p }}%
       </div>
       <div class="box-4">
          <form action="/list/{{this._id}}/remove" method="POST">
@@ -28,13 +31,16 @@
       </div>
     </div>
       
-        
-       
-      
   {{/each}}
-  
 </div>
 
+<footer>
+  <div class="icon-bar">
+    <a href="/"><i class="fa fa-globe"></i></a>
+    <a class="active" href="/list"><i class="fa fa-list-alt"></i></a>
+    <a href="/account"><i class="fa fa-user"></i></a>
+  </div>
+</footer>
 
 
 

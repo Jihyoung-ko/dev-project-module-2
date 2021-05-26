@@ -7,6 +7,8 @@
     "dev": "DEBUG=dev-project--module2:* nodemon ./bin/www",
     "dev-windows": "nodemon ./bin/www",
     "ticker-seed": "node ./bin/ticker-seed.js",
+    "ticker-seed-atlas": "node ./bin/ticker-seed-atlas.js",
+    "atest": "node ./bin/atlas-test.js",
     "company-data-update": "node ./bin/company-data-update.js",
     "histPrices-data-update": "node ./bin/histPrices-data-update.js"
   },
@@ -18,7 +20,7 @@
     "convert": "^1.9.0",
     "cookie-parser": "^1.4.3",
     "csv-to-json": "^0.1.2",
-    "dotenv": "^6.0.0",
+    "dotenv": "^6.2.0",
     "express": "^4.17.1",
     "express-session": "^1.17.1",
     "hbs": "^4.0.1",

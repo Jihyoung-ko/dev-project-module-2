@@ -1,3 +1,4 @@
+require('dotenv').config()
 const mongoose = require('mongoose');
 const Company = require('../models/company');
 const HistPrices = require('../models/histPrices');
@@ -21,8 +22,10 @@ function getCurrentDate() {
   return yyyy + "-" + mm + "-" + dd
 }
 
+
+
 mongoose
-  .connect('mongodb://localhost:27017/dev-project--module2', { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false })
+  .connect(process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false })
   .then(() => {
     console.log('Connected to DB 🚀');
   })
@@ -52,6 +55,7 @@ mongoose
         // delete current histPrices data
         await HistPrices.deleteMany( { company: id } );
         //add new histPrices
+        
         for (let data of res.data) {
             await HistPrices.create( {
             company: id,

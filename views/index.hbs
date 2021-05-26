@@ -4,7 +4,7 @@
     <div class="container-box" >
       <div class="box-1">
         <div class="sub-box-1-1">
-          <a href="/detail/{{this._id}}/list">
+          <a href="/detail/{{this._id}}/home">
             {{ this.ticker }}
           </a>
         </div>
@@ -21,7 +21,7 @@
         </div>
       </div>
       <div class="box-3">
-        +X%
+        +{{ this.change_p }}%
       </div>
       <div class="box-4">
         <form action="/list/{{this._id}}/add" method="POST">
@@ -31,3 +31,10 @@
     </div>
   {{/each}}
 </div>
+<footer>
+  <div class="icon-bar">
+    <a class="active" href="/"><i class="fa fa-globe"></i></a>
+    <a href="/list"><i class="fa fa-list-alt"></i></a>
+    <a href="/account"><i class="fa fa-user"></i></a>
+  </div>
+</footer>
