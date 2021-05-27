@@ -43,6 +43,7 @@ router.get('/:id/list', (req, res, next) => {
     //     res.render('companies/detail-list', {company});
     //   })
 
+
   List.findOne( { company : id, user: user._id  })
     .populate('company')
     .then(list => {

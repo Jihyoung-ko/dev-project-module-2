@@ -1,7 +1,6 @@
 <div class="detail-container">
   <h1>{{list.company.ticker}}</h1>
   <h2>{{list.company.name}}</h2>
-<p>{{lastdata.open}}</p>
   <div id="company-graph-container">
     <canvas id="chart" width="250" height="200"></canvas>
     <script>
@@ -41,10 +40,19 @@
     <p>{{list.company.description}}</p>
   </div>
   <div id="company-performance-container">
-    <h4>Performance</h4>
+    <div>
+      <p>Date: {{lastdata.date}}</p>
+      <p>Open: {{lastdata.open}}</p>
+      <p>High: {{lastdata.high}}</p>
+      <p>Low: {{lastdata.low}}</p>
+      <p>Close: {{lastdata.Close}}</p>
+      <p>Adjusted close: {{lastdata.adjusted_close}}</p>
+      <p>Vol: {{lastdata.volume}}</p>
+      
+    </div>
   </div>
   <div id="company-rating-container">
-    <h4>My Rating
+    <h4>My Rating  {{list.rating}}
     </h4>
     <div id="rating-number-container">
       <form action="/detail/{{list._id}}/rate/1" method="POST" class="rating-box">

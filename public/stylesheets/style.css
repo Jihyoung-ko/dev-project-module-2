@@ -272,3 +272,12 @@ canvas {
   max-width: 600px;
   max-height: 350px;
 }
+
+#company-performance-container {
+  margin-top: 20px;
+  color: darkgrey;
+}
+
+#company-rating-container {
+  margin-top: 20px;
+}
