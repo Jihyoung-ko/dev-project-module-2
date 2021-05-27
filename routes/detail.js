@@ -23,20 +23,12 @@ router.get('/:id/home', (req, res, next) => {
         res.status(404).send("Not found.");
       }
     });
-  // Company.findById(id)
-  //   .then()
-  //   .then(company => {
-  //     console.log(company);
-  //     res.render('companies/detail-home', { company });
-  //   })
-  //   .catch(error => {
-  //     next(error);
-  //   });
 });  
 
 router.get('/:id/list', (req, res, next) => {
   const { id } = req.params;
-  List.findOne({ company : id })
+  const user = req.session.currentUser
+  List.findOne( { company : id, user: user._id  })
     .populate('company')
     .then(list => {
       HistPrices.find({ company : id })
@@ -60,10 +52,8 @@ router.get('/:id/list', (req, res, next) => {
 
 router.post('/:id/rate/1', (req, res, next) => {
   const { id } = req.params;
-  console.log(req.params);
   List.findByIdAndUpdate( id, {rating: 1}, {new: true})
     .then(list => {
-      console.log('Update rate', list);
       res.redirect('back');
     })
     .catch(error => {
@@ -73,10 +63,8 @@ router.post('/:id/rate/1', (req, res, next) => {
 
 router.post('/:id/rate/2', (req, res, next) => {
   const { id } = req.params;
-  console.log(req.params);
   List.findByIdAndUpdate( id, {rating: 2}, {new: true})
     .then(list => {
-      console.log('Update rate', list);
       res.redirect('back');
     })
     .catch(error => {
@@ -86,10 +74,8 @@ router.post('/:id/rate/2', (req, res, next) => {
 
 router.post('/:id/rate/3', (req, res, next) => {
   const { id } = req.params;
-  console.log(req.params);
   List.findByIdAndUpdate( id, {rating: 3}, {new: true})
     .then(list => {
-      console.log('Update rate', list);
       res.redirect('back');
     })
     .catch(error => {
@@ -99,10 +85,8 @@ router.post('/:id/rate/3', (req, res, next) => {
 
 router.post('/:id/rate/4', (req, res, next) => {
   const { id } = req.params;
-  console.log(req.params);
   List.findByIdAndUpdate( id, {rating: 4}, {new: true})
     .then(list => {
-      console.log('Update rate', list);
       res.redirect('back');
     })
     .catch(error => {
@@ -112,10 +96,8 @@ router.post('/:id/rate/4', (req, res, next) => {
 
 router.post('/:id/rate/5', (req, res, next) => {
   const { id } = req.params;
-  console.log(req.params);
   List.findByIdAndUpdate( id, {rating: 5}, {new: true})
     .then(list => {
-      console.log('Update rate', list);
       res.redirect('back');
     })
     .catch(error => {
