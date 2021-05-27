@@ -3,6 +3,7 @@ const router  = express.Router();
 const Company = require('../models/company');
 const List = require('../models/list');
 const HistPrices = require('../models/histPrices');
+const { isValidObjectId } = require('mongoose');
 
 
 router.get('/:id/home', (req, res, next) => {
@@ -18,7 +19,11 @@ router.get('/:id/home', (req, res, next) => {
       res.render('companies/detail-home', { data, lastdata, dates, prices });
     })
     .catch(error => {
-      next(error);
+      if(isValidObjectId(req.params.id)) {
+        next(error);
+      } else {
+        res.status(404).send("Not found.");
+      }
     });
   // Company.findById(id)
   //   .then()
@@ -39,7 +44,11 @@ router.get('/:id/list', (req, res, next) => {
       res.render('companies/detail-list', { list });
     })
     .catch(error => {
-      next(error);
+      if(isValidObjectId(req.params.id)) {
+        next(error);
+      } else {
+        res.status(404).send("Not found.");
+      }
     });
 });
 
