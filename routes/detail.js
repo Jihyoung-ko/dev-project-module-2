@@ -11,9 +11,7 @@ router.get('/:id/home', (req, res, next) => {
     .populate('company')
     .then(data => {
       const lastdata = data[data.length-1];
-      const dates = data.map(function(ele){
-        return ele.date;
-      })
+      const dates = data.map(ele => ele.date);
       const prices = data.map(ele => ele.Close);
       res.render('companies/detail-home', { data, lastdata, dates, prices });
     })
@@ -33,14 +31,22 @@ router.get('/:id/home', (req, res, next) => {
 
 router.get('/:id/list', (req, res, next) => {
   const { id } = req.params;
-  List.findById(id)
+  List.findOne({ company : id })
     .populate('company')
     .then(list => {
-      res.render('companies/detail-list', { list });
+      HistPrices.find({ company : id })
+      .then(data => {
+        const lastdata = data[data.length-1];
+        const dates = data.map(ele => ele.date);
+        const prices = data.map(ele => ele.Close);
+        res.render('companies/detail-list', { list, data, lastdata, dates, prices });
+      })
+      
     })
     .catch(error => {
       next(error);
     });
+  
 });
 
 router.post('/:id/rate/1', (req, res, next) => {

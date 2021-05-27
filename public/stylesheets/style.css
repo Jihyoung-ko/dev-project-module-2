@@ -272,3 +272,8 @@ canvas {
   max-width: 600px;
   max-height: 350px;
 }
+
+#company-performance-container {
+  color: lightgrey;
+  margin-top: 20px;
+}
