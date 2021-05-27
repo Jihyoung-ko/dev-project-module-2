@@ -11,7 +11,6 @@ const path         = require('path');
 const session = require('express-session');
 const MongoStore = require('connect-mongo');
 
-
 mongoose
   .connect(process.env.MONGODB_URI, {useNewUrlParser: true})
   .then(x => {
@@ -76,6 +75,7 @@ const authRouter = require('./routes/auth');
 app.use('/', authRouter);
 
 const detailRouter = require('./routes/detail');
+const HistPrices = require('./models/histPrices');
 app.use('/detail', detailRouter);
 
 module.exports = app;
