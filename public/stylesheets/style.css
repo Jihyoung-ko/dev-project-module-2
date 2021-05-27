@@ -213,6 +213,7 @@ h1, h2, h4 {
 
 .detail-container {
   margin: 20px;
+  padding-bottom: 70px;
 }
 
 canvas {
