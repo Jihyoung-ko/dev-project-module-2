@@ -36,25 +36,16 @@ router.get('/:id/home', (req, res, next) => {
 
 router.get('/:id/list', (req, res, next) => {
   const { id } = req.params;
-  const user = req.session.currentUser
-  console.log('user', user._id);
-    // Company.findById(id)
-    //   .then(company => {
-    //     res.render('companies/detail-list', {company});
-    //   })
-
-
-  List.findOne( { company : id, user: user._id  })
+  List.findOne({ company : id })
     .populate('company')
     .then(list => {
-      HistPrices.find( { company : id }) 
-        .then(data => {
-          const lastdata = data[data.length-1];
-          const dates = data.map(ele => ele.date);
-          const prices = data.map(ele => ele.Close);
-          res.render('companies/detail-list', { list, data, lastdata, dates, prices });
-
-        })   
+      HistPrices.find({ company : id })
+      .then(data => {
+        const lastdata = data[data.length-1];
+        const dates = data.map(ele => ele.date);
+        const prices = data.map(ele => ele.Close);
+        res.render('companies/detail-list', { list, data, lastdata, dates, prices });
+      })
       
     })
     .catch(error => {
@@ -64,6 +55,7 @@ router.get('/:id/list', (req, res, next) => {
         res.status(404).send("Not found.");
       }
     });
+  
 });
 
 router.post('/:id/rate/1', (req, res, next) => {

@@ -5,7 +5,7 @@
       <div class="box-1">
         <div class="sub-box-1-1">
           <a href="/detail/{{this._id}}/home">
-            {{ this.ticker }}
+            {{ this.ticker }}{{this.lastPrice}}
           </a>
         </div>
         <div class="sub-box-1-2">
@@ -20,6 +20,7 @@
           L: {{ this.lo_250d }}
         </div>
       </div>
+
       <div class="box-3">
         {{ this.change_p }}
       </div>
