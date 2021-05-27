@@ -1,13 +1,20 @@
-{{!-- <h1>{{title}}</h1>
-<p>Welcome to the account view {{title}}</p> --}}
-<div class="auth-container">
-  <h3>{{user.email}}</h3>
+<div class="auth-page-container">
+  <div class="auth-container">
+    <h3>{{user.email}}</h3>
 
-  <button class="btn-submit" id="btn-logout">
-    <a href="/logout">Logout</a>
-  </button>
-  <form action="/account/{{user._id}}/delete" method="POST">
-    <button class="btn-submit">Delete Account</button>
-  </form>
+    <button class="btn-submit" id="btn-logout">
+      <a href="/logout">Logout</a>
+    </button>
+    <form action="/account/{{user._id}}/delete" method="POST">
+      <button class="btn-submit">Delete Account</button>
+    </form>
+  </div>
 </div>
 
+<footer>
+  <div class="icon-bar">
+    <a href="/"><i class="fa fa-globe"></i></a>
+    <a href="/list"><i class="fa fa-list-alt"></i></a>
+    <a class="active" href="/account"><i class="fa fa-user"></i></a>
+  </div>
+</footer>

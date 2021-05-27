@@ -22,6 +22,8 @@ function getCurrentDate() {
   return yyyy + "-" + mm + "-" + dd
 }
 
+
+
 mongoose
   .connect(process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false })
   .then(() => {
@@ -53,6 +55,7 @@ mongoose
         // delete current histPrices data
         await HistPrices.deleteMany( { company: id } );
         //add new histPrices
+        
         for (let data of res.data) {
             await HistPrices.create( {
             company: id,

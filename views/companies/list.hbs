@@ -7,7 +7,7 @@
     <div class="container-box">
       <div class="box-1">
         <div class="sub-box-1-1">
-          <a href="/detail/{{this._id}}/list">
+          <a href="/detail/{{this.company._id}}/list">
             {{ this.company.ticker }}
         </a>
         </div>
@@ -15,11 +15,13 @@
           {{ this.company.name }}
         </div>
       </div>
+
       <div class="box-2">
         <p>Rate: {{this.rating}}</p>
       </div>
+
       <div class="box-3">
-        +{{ this.change_p }}%
+        +{{ this.company.change_p }}%
       </div>
       <div class="box-4">
          <form action="/list/{{this._id}}/remove" method="POST">
@@ -28,13 +30,16 @@
       </div>
     </div>
       
-        
-       
-      
   {{/each}}
-  
 </div>
 
+<footer>
+  <div class="icon-bar">
+    <a href="/"><i class="fa fa-globe"></i></a>
+    <a class="active" href="/list"><i class="fa fa-list-alt"></i></a>
+    <a href="/account"><i class="fa fa-user"></i></a>
+  </div>
+</footer>
 
 
 
