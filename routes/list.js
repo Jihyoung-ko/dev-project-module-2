@@ -1,4 +1,5 @@
 const express = require('express');
+const { isValidObjectId } = require('mongoose');
 const router  = express.Router();
 const userLoggedIn = require('../middleware/auth');
 const List = require('../models/list');
@@ -29,7 +30,11 @@ router.post('/:id/add', userLoggedIn, (req, res, next) => {
       res.redirect('/');
     })
     .catch(error => {
-      next(error);
+      if(isValidObjectId(req.params.id)) {
+        next(error);
+      } else {
+        res.status(404).send("Not found.");
+      }
     });
 });
 

@@ -32,7 +32,13 @@ mongoose
   .then( async (promiseRes) => {
   // update companies
     for (let company of promiseRes.data) {
-      const lo_hi_perf = Math.round(((company.hi_250d-company.lo_250d)/company.lo_250d)*100)
+      let lo_hi_perf = Math.round(((company.hi_250d-company.lo_250d)/company.lo_250d)*100);
+      if (isNaN(lo_hi_perf)) {
+        lo_hi_perf = "-";
+      }
+        else {
+        lo_hi_perf = "+" + lo_hi_perf + "%";
+      }
       await Company.findOneAndUpdate( {
         ticker: company.code + "." + company.exchange_short_name 
         }, { $set: { 
