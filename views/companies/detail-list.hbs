@@ -1,25 +1,32 @@
 <div class="detail-container">
   <h1>{{list.company.ticker}}</h1>
   <h2>{{list.company.name}}</h2>
+<p>{{lastdata.open}}</p>
   <div id="company-graph-container">
     <canvas id="chart" width="250" height="200"></canvas>
     <script>
       const ctx = document.getElementById('chart').getContext('2d');
+      const dates = "{{dates}}".split(',')
+      const formatDate = dates.map(date => {
+    
+        const dateDetails = date.split(" ");
+        return `${dateDetails[1]} ${dateDetails[2]} ${dateDetails[3]}`;
+      })
+      const prices = "{{prices}}".split(',');
       const myChart = new Chart(ctx, {
           type: 'line',
           data: {
-              labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+              labels: formatDate,
               datasets: [{
-                  label: 'label',
-                  data: [12, 19, 3, 5, 2, 3],
-                  backgroundColor: 
-                      'rgba(255, 99, 132, 0.2)',
-                  borderColor: 
-                      'rgba(255, 99, 132, 1)',
+                  label: 'close price',
+                  data: prices,
+                  backgroundColor: ['rgba(255, 99, 132, 0.2)'],
+                  borderColor: ['rgba(255, 99, 132, 1)'],
                   borderWidth: 1
               }]
           },
           options: {
+            
               scales: {
                   y: {
                       beginAtZero: true
@@ -28,7 +35,6 @@
           }
       });
     </script>
-
 
   </div>
   <div id="company-description-container">

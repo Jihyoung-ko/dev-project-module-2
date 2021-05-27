@@ -1,13 +1,14 @@
 <div id="list-user-container">
   <p>{{list.length}} companies</p>
   <p>{{ user.email }}</p>
+  
 </div>
 <div class="main-container">
   {{#each list}}
     <div class="container-box">
       <div class="box-1">
         <div class="sub-box-1-1">
-          <a href="/detail/{{this._id}}/list">
+          <a href="/detail/{{this.company.id}}/list">
             {{ this.company.ticker }}
         </a>
         </div>
